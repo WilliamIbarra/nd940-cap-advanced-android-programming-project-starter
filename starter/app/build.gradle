@@ -6,14 +6,14 @@ apply plugin: 'kotlinx-serialization'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 32
     buildFeatures {
         dataBinding true
     }
     defaultConfig {
         applicationId 'com.example.android.politicalpreparedness'
         minSdkVersion 26
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
     }
@@ -39,7 +39,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$version_kotlin_serialization"
@@ -70,7 +69,12 @@ dependencies {
     // Glide
     //TODO: Add Glide Implementation
 
+    // Koin
+    //TODO: Add Koin Implementation
+    implementation "io.insert-koin:koin-android:3.1.6"
+
     //Room
+    implementation "androidx.room:room-ktx:$version_room"
     implementation "androidx.room:room-runtime:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
 
