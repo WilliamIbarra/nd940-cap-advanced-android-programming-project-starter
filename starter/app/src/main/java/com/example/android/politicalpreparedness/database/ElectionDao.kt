@@ -26,4 +26,7 @@ interface ElectionDao {
     @Query("DELETE FROM electiondb")
     suspend fun deleteElections()
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveElections(elections: List<ElectionDB>)
+
 }

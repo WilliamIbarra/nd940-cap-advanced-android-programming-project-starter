@@ -1,6 +1,9 @@
 package com.example.android.politicalpreparedness
 
 import android.app.Application
+import com.example.android.politicalpreparedness.database.ElectionDatabase
+import com.example.android.politicalpreparedness.database.ElectionsDataSource
+import com.example.android.politicalpreparedness.database.ElectionsRepository
 import com.example.android.politicalpreparedness.election.ElectionsViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -20,9 +23,15 @@ class App: Application() {
         val myModule = module {
             // Declare singleton definitions to be later injected using by inject()
             single {
-                ElectionsViewModel()
+                ElectionsViewModel(get())
             }
             //TODO: Add a repository
+            single {
+                ElectionsRepository(get())
+            }
+            single {
+                ElectionDatabase.getInstance(this@App)
+            }
         }
 
         startKoin {

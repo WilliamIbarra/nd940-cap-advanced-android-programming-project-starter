@@ -1,10 +1,13 @@
 package com.example.android.politicalpreparedness.network
 
+import com.example.android.politicalpreparedness.network.models.ElectionResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Headers
 
 private const val BASE_URL = "https://www.googleapis.com/civicinfo/v2/"
 
@@ -26,6 +29,9 @@ private val retrofit = Retrofit.Builder()
 
 interface CivicsApiService {
     //TODO: Add elections API Call
+    @Headers("Content-Type: application/json", "Accept: application/json")
+    @GET("elections")
+    suspend fun getElections(): ElectionResponse
 
     //TODO: Add voterinfo API Call
 

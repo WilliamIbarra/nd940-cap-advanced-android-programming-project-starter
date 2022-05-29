@@ -14,8 +14,8 @@ data class ElectionDB constructor(
     @PrimaryKey
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "electionDay") val electionDay: Long,
-    @Embedded(prefix = "division_") @Json(name = "ocdDivisionId") val division: Division
+    @ColumnInfo(name = "electionDay") val electionDay: String?,
+    @Embedded(prefix = "division_") @Json(name = "ocdDivisionIdo") val division: Division?
 )
 
 fun List<ElectionDB>.asDomainModel(): List<Election> {
@@ -25,7 +25,7 @@ fun List<ElectionDB>.asDomainModel(): List<Election> {
         Election(
             id = it.id,
             name = it.name,
-            electionDay = converters.fromTimestamp(it.electionDay)!!,
+            electionDay = it.electionDay,
             division = it.division
         )
     }

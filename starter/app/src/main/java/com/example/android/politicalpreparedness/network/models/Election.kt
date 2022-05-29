@@ -14,8 +14,8 @@ import kotlin.collections.ArrayList
 data class Election(
         @PrimaryKey @ColumnInfo(name = "id") val id: Int,
         @ColumnInfo(name = "name") val name: String,
-        @ColumnInfo(name = "electionDay") val electionDay: Date,
-        @Embedded(prefix = "division_") @Json(name = "ocdDivisionId") val division: Division
+        @ColumnInfo(name = "electionDay") val electionDay: String?,
+        @Embedded(prefix = "division_") @Json(name = "ocdDivisionIdo") val division: Division?
 ) : Parcelable
 
 fun ArrayList<Election>.asDatabaseModel(): Array<ElectionDB> {
@@ -24,7 +24,7 @@ fun ArrayList<Election>.asDatabaseModel(): Array<ElectionDB> {
                 ElectionDB(
                      id = it.id,
                      name = it.name,
-                     electionDay = converters.dateToTimestamp(it.electionDay)!!,
+                     electionDay = it.electionDay,
                      division = it.division
                 )
         }.toTypedArray()
