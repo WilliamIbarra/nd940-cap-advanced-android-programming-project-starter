@@ -15,7 +15,8 @@ data class Election(
         @PrimaryKey @ColumnInfo(name = "id") val id: Int,
         @ColumnInfo(name = "name") val name: String,
         @ColumnInfo(name = "electionDay") val electionDay: String?,
-        @Embedded(prefix = "division_") @Json(name = "ocdDivisionIdo") val division: Division?
+        @Embedded(prefix = "division_") @Json(name = "ocdDivisionIdo") val division: Division?,
+        @ColumnInfo(name = "newDivision") @Json(name = "ocdDivisionId") val newDivision: String
 ) : Parcelable
 
 fun ArrayList<Election>.asDatabaseModel(): Array<ElectionDB> {
@@ -25,7 +26,9 @@ fun ArrayList<Election>.asDatabaseModel(): Array<ElectionDB> {
                      id = it.id,
                      name = it.name,
                      electionDay = it.electionDay,
-                     division = it.division
+                     division = it.division,
+                    newDivision = it.newDivision
+
                 )
         }.toTypedArray()
 }

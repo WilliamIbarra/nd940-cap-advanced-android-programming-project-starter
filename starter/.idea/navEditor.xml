@@ -8,18 +8,6 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="detailFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="137" />
-                            <option name="y" value="8" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="electionsFragment">
                     <value>
                       <LayoutPositions>
@@ -43,12 +31,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_launchFragment_to_detailFragment">
+                            <entry key="action_launchFragment_to_electionsFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_launchFragment_to_electionsFragment">
+                            <entry key="action_launchFragment_to_representativeFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -58,13 +46,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="mainActivity">
+                  <entry key="representativeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-104" />
-                            <option name="y" value="80" />
+                            <option name="x" value="206" />
+                            <option name="y" value="2" />
                           </Point>
                         </option>
                       </LayoutPositions>
