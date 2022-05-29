@@ -56,8 +56,7 @@ class ElectionsFragment : Fragment() {
 
             this.findNavController().navigate(
                 actionElectionsFragmentToVoterInfoFragment(
-                    election.id,
-                    election.newDivision
+                    election
                 )
             )
 
