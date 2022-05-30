@@ -78,44 +78,54 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.6" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_three"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/socialMedia"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toEndOf="@id/guideline_two"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_three"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                 android:id="@+id/wwwIcon"
-                android:layout_width="0dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_weight="1"
                 android:src="@drawable/ic_www"
-                tools:src="@drawable/ic_www" />
+                tools:src="@drawable/ic_www"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
                 android:id="@+id/facebookIcon"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:padding="5dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_facebook"
-                tools:src="@drawable/ic_facebook"/>
+                tools:src="@drawable/ic_facebook"
+                app:layout_constraintStart_toEndOf="@id/wwwIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
                 android:id="@+id/twitterIcon"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:padding="5dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_twitter"
-                tools:src="@drawable/ic_twitter"/>
+                tools:src="@drawable/ic_twitter"
+                app:layout_constraintStart_toEndOf="@id/facebookIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
