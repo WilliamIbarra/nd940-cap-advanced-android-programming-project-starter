@@ -22,6 +22,9 @@
             android:id="@+id/search_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/headerStyle"
+            android:textSize="14sp"
+            android:text="@string/txt_representative_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
