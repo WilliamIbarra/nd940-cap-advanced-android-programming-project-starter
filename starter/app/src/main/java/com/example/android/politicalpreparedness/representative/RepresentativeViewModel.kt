@@ -81,6 +81,15 @@ class RepresentativeViewModel(private val electionsRepository: ElectionsReposito
      */
 
     //TODO: Create function get address from geo location
+     fun geoLocation(address: Address) {
+        addressLine1.postValue(address.line1)
+        addressLine2.postValue(address.line2.toString())
+        zip.postValue(address.zip)
+        city.postValue(address.city)
+
+        representatives()
+
+    }
 
     //TODO: Create function to get address from individual fields
     private fun getInputAddress() {
@@ -88,6 +97,8 @@ class RepresentativeViewModel(private val electionsRepository: ElectionsReposito
         Log.e("Result", "##### ADDRESS ######")
         Log.e("Result", address.value.toString())
     }
+
+
 
     init {
         addressLine1.postValue("")

@@ -17,6 +17,9 @@
     <string name="txt_address_line_2">Address Line 2</string>
     <string name="txt_city">City</string>
     <string name="txt_zip">Zip</string>
+    <string name="location_required_error">Location is required for use this feature</string>
+    <string name="permission_denied_explanation">Please Enabled this permission!</string>
+    <string name="settings">Settings</string>
 
     <!-- TODO: Add necessary string values -->
 
