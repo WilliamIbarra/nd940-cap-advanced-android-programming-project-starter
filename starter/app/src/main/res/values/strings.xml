@@ -10,6 +10,13 @@
     <string name="txt_voting_locations">Voting Locations</string>
     <string name="txt_ballot_information">Ballot Information</string>
     <string name="txt_unfollow_elections">Unfollow Election</string>
+    <string name="tx_find_my_representatives">Find my representatives</string>
+    <string name="tx_use_my_location">Use my Location</string>
+    <string name="txt_my_representatives">My Representatives</string>
+    <string name="txt_address_line_1">Address Line 1</string>
+    <string name="txt_address_line_2">Address Line 2</string>
+    <string name="txt_city">City</string>
+    <string name="txt_zip">Zip</string>
 
     <!-- TODO: Add necessary string values -->
 

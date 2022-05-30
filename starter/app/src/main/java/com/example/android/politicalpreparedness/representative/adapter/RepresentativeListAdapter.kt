@@ -14,20 +14,29 @@ import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.ViewHolderRepresentativeBinding
 import com.example.android.politicalpreparedness.network.models.Channel
 import com.example.android.politicalpreparedness.representative.model.Representative
+import com.example.android.politicalpreparedness.utils.GenericAdapter
 
-class RepresentativeListAdapter: ListAdapter<Representative, RepresentativeListAdapter.RepresentativeViewHolder>(
-    RepresentativeDiffCallback()
-){
+class RepresentativeListAdapter():
+    GenericAdapter<List<Representative>>,
+    ListAdapter<Representative, RepresentativeListAdapter.RepresentativeViewHolder>(RepresentativeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepresentativeViewHolder {
-        return RepresentativeViewHolder.from(parent)
+        //return RepresentativeViewHolder.from(parent)
+        return RepresentativeViewHolder(
+            ViewHolderRepresentativeBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RepresentativeViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.bind(item)
+        val representative = getItem(position)
+        holder.bind(representative)
     }
-    class RepresentativeViewHolder(val binding: ViewHolderRepresentativeBinding): RecyclerView.ViewHolder(binding.root) {
+    class RepresentativeViewHolder(val binding: ViewHolderRepresentativeBinding):
+        RecyclerView.ViewHolder(binding.root) {
 
 
         fun bind(item: Representative) {
@@ -35,17 +44,23 @@ class RepresentativeListAdapter: ListAdapter<Representative, RepresentativeListA
             binding.representativePhoto.setImageResource(R.drawable.ic_profile)
 
             //TODO: Show social links ** Hint: Use provided helper methods
+           item.official.channels?.let { channels ->
+               showSocialLinks(channels)
+           }
             //TODO: Show www link ** Hint: Use provided helper methods
+            item.official.urls?.let { urls ->
+                showWWWLinks(urls)
+            }
 
             binding.executePendingBindings()
         }
 
         private fun showSocialLinks(channels: List<Channel>) {
             val facebookUrl = getFacebookUrl(channels)
-            if (!facebookUrl.isNullOrBlank()) { enableLink(binding.facebookIcon, facebookUrl) }
+            if (!facebookUrl.isNullOrEmpty()) { enableLink(binding.facebookIcon, facebookUrl) }
 
             val twitterUrl = getTwitterUrl(channels)
-            if (!twitterUrl.isNullOrBlank()) { enableLink(binding.twitterIcon, twitterUrl) }
+            if (!twitterUrl.isNullOrEmpty()) { enableLink(binding.twitterIcon, twitterUrl) }
         }
 
         private fun showWWWLinks(urls: List<String>) {
@@ -104,6 +119,10 @@ class RepresentativeListAdapter: ListAdapter<Representative, RepresentativeListA
     //TODO: Create RepresentativeListener
     class RepresentativeListener(val clickListener: (representative: Representative) -> Unit) {
         fun onClick(representative: Representative) = clickListener(representative)
+    }
+
+    override fun setData(data: List<Representative>) {
+        submitList(data)
     }
 
 }

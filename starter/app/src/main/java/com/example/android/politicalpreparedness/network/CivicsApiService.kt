@@ -1,6 +1,8 @@
 package com.example.android.politicalpreparedness.network
 
 import com.example.android.politicalpreparedness.network.models.ElectionResponse
+import com.example.android.politicalpreparedness.network.models.RepresentativeResponse
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -8,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Query
 
 private const val BASE_URL = "https://www.googleapis.com/civicinfo/v2/"
 
@@ -36,6 +39,14 @@ interface CivicsApiService {
     //TODO: Add voterinfo API Call
 
     //TODO: Add representatives API Call
+    //GET https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=California&includeOffices=true&key=[YOUR_API_KEY] HTTP/1.1
+    @Headers("Content-Type: application/json", "Accept: application/json")
+    @GET("representatives")
+    suspend fun getRepresentatives(
+        @Query("address") address: String,
+        @Query("includeOffices") includeOffices: Boolean
+    ): RepresentativeResponse
+    //Accept: application/json
 }
 
 object CivicsApi {

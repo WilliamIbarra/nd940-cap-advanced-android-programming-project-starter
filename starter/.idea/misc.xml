@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/drawable/ic_broken_image.xml" value="0.256" />
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/drawable/ic_connection_error.xml" value="0.256" />
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/drawable/ic_facebook.xml" value="0.256" />
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/drawable/ic_profile.xml" value="0.256" />
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/drawable/ic_twitter.xml" value="0.256" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/fragment_election.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/fragment_launch.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/fragment_representative.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/fragment_voter_info.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/view_holder_election.xml" value="0.29257907542579076" />
-        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/view_holder_representative.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/William Ibarra/Documents/ProyectosAndroid/FINAL PROJECT/nd940-cap-advanced-android-programming-project-starter/starter/app/src/main/res/layout/view_holder_representative.xml" value="0.2" />
       </map>
     </option>
   </component>

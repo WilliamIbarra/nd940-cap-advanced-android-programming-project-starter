@@ -7,6 +7,7 @@ import com.example.android.politicalpreparedness.database.ElectionsDataSource
 import com.example.android.politicalpreparedness.database.ElectionsRepository
 import com.example.android.politicalpreparedness.election.ElectionsViewModel
 import com.example.android.politicalpreparedness.election.VoterInfoViewModel
+import com.example.android.politicalpreparedness.representative.RepresentativeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
@@ -29,6 +30,9 @@ class App: Application() {
             }
             single {
                 VoterInfoViewModel(get())
+            }
+            single {
+                RepresentativeViewModel(get())
             }
             //TODO: Add a repository
             single {

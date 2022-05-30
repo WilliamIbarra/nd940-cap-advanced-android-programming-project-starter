@@ -6,9 +6,16 @@ import android.location.Location
 import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentRepresentativeBinding
+import com.example.android.politicalpreparedness.election.VoterInfoViewModel
 import com.example.android.politicalpreparedness.network.models.Address
+import com.example.android.politicalpreparedness.representative.adapter.RepresentativeListAdapter
+import org.koin.android.ext.android.inject
 import java.util.Locale
 
 class DetailFragment : Fragment() {
@@ -18,7 +25,7 @@ class DetailFragment : Fragment() {
     }
 
     //TODO: Declare ViewModel
-
+    private val representativeViewModel: RepresentativeViewModel by inject()
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -26,12 +33,15 @@ class DetailFragment : Fragment() {
         //TODO: Establish bindings
         val binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
-
+        binding.viewModel = representativeViewModel
         //TODO: Define and assign Representative adapter
-
+        binding.representativeRecyclerView.adapter = RepresentativeListAdapter()
         //TODO: Populate Representative adapter
-
+        binding.state.setValues()
         //TODO: Establish button listeners for field and location search
+        binding.buttonSearch.setOnClickListener {
+            representativeViewModel.representatives()
+        }
 
         return binding.root
     }
@@ -73,6 +83,30 @@ class DetailFragment : Fragment() {
     private fun hideKeyboard() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+    }
+
+    fun Spinner.setValues() {
+        val arrayAdapter = ArrayAdapter
+            .createFromResource(
+                this.context, R.array.states,
+                android.R.layout.simple_spinner_item
+            )
+
+        arrayAdapter
+            .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        this.adapter = arrayAdapter
+
+        this.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val state: String =  parent.adapter.getItem(position).toString()
+                representativeViewModel.saveState(state)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
     }
 
 }
