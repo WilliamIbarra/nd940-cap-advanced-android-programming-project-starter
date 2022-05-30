@@ -93,6 +93,7 @@ class DetailFragment : Fragment() {
                     })
                 }.show()
         } else {
+            requestForegroundLocationPermissions()
             val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location->
