@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
+            android:saveEnabled="true"
             android:hint="@string/txt_address_line_1"
             android:inputType="textPostalAddress"
             android:text="@={viewModel.addressLine1}"
@@ -47,10 +48,11 @@
             android:id="@+id/address_line_2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:hint="@string/txt_address_line_2"
-            android:text="@={viewModel.addressLine2}"
             android:autofillHints=""
+            android:saveEnabled="true"
+            android:hint="@string/txt_address_line_2"
             android:inputType="textPostalAddress"
+            android:text="@={viewModel.addressLine2}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/address_line_1" />
 
@@ -61,11 +63,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
-            android:text="@={viewModel.city}"
             android:hint="@string/txt_city"
+            android:saveEnabled="true"
             android:inputType="textPostalAddress"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@={viewModel.city}"
             app:layout_constraintEnd_toStartOf="@id/state"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/address_line_2" />
 
         <!-- TODO: Add default values from provided resources  -->
@@ -76,11 +79,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:autofillHints=""
+            android:saveEnabled="true"
             android:inputType="textPostalAddress"
-            app:layout_constraintStart_toEndOf="@id/city"
+            app:layout_constraintBottom_toBottomOf="@id/city"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/city"
-            app:layout_constraintBottom_toBottomOf="@id/city"/>
+            app:layout_constraintStart_toEndOf="@id/city"
+            app:layout_constraintTop_toTopOf="@id/city" />
 
         <!-- TODO: Add data binding value -->
         <!-- TODO: Add visual styling and content -->
@@ -89,12 +93,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
-            android:text="@={viewModel.zip}"
             android:hint="@string/txt_zip"
+            android:saveEnabled="true"
             android:inputType="number"
             android:maxLength="5"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@={viewModel.zip}"
             app:layout_constraintEnd_toEndOf="@id/city"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/city" />
 
         <!-- TODO: Add visual styling and label -->
