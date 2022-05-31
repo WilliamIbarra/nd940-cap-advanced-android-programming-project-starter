@@ -64,7 +64,7 @@ class DetailFragment : Fragment() {
             representativeViewModel.representatives()
         }
         binding.buttonLocation.setOnClickListener {
-            getActualLocation()
+            requestForegroundLocationPermissions()
         }
 
         return binding.root
@@ -139,7 +139,8 @@ class DetailFragment : Fragment() {
         }
         locationSettingsResponseTask.addOnCompleteListener {
             if ( it.isSuccessful ) {
-                requestForegroundLocationPermissions()
+               // requestForegroundLocationPermissions()
+                getActualLocation()
             }
         }
 
@@ -154,7 +155,8 @@ class DetailFragment : Fragment() {
 
     private fun requestForegroundLocationPermissions() {
         if (foregroundLocationPermissionApproved()) {
-            getActualLocation()
+            //getActualLocation()
+            getLocation()
             return
         }
         var permissionsArray = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
