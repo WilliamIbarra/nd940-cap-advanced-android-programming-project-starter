@@ -55,6 +55,7 @@ class DetailFragment : Fragment() {
         binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = representativeViewModel
+        binding.executePendingBindings()
         //TODO: Define and assign Representative adapter
         binding.representativeRecyclerView.adapter = RepresentativeListAdapter()
         //TODO: Populate Representative adapter

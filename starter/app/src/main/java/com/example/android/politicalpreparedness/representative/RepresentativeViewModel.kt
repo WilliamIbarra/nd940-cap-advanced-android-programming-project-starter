@@ -100,11 +100,5 @@ class RepresentativeViewModel(private val electionsRepository: ElectionsReposito
 
 
 
-    init {
-        addressLine1.postValue("")
-        addressLine2.postValue("")
-        zip.postValue("")
-        city.postValue("")
 
-    }
 }
