@@ -5,6 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.android.politicalpreparedness.database.Converters
+import com.example.android.politicalpreparedness.network.jsonadapter.ElectionAdapter
 import com.example.android.politicalpreparedness.network.models.Division
 import com.example.android.politicalpreparedness.network.models.Election
 import com.squareup.moshi.Json
@@ -27,7 +28,7 @@ fun List<ElectionDB>.asDomainModel(): List<Election> {
             id = it.id,
             name = it.name,
             electionDay = it.electionDay,
-            division = it.division,
+            division = ElectionAdapter().divisionFromJson(it.newDivision),
             newDivision = it.newDivision
         )
     }

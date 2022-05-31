@@ -6,7 +6,7 @@ import com.example.android.politicalpreparedness.database.Converters
 import com.example.android.politicalpreparedness.database.ElectionDB
 import com.squareup.moshi.*
 import kotlinx.android.parcel.Parcelize
-import java.util.*
+import com.example.android.politicalpreparedness.network.jsonadapter.ElectionAdapter
 import kotlin.collections.ArrayList
 
 @Entity(tableName = "election_table")
@@ -26,7 +26,7 @@ fun ArrayList<Election>.asDatabaseModel(): Array<ElectionDB> {
                      id = it.id,
                      name = it.name,
                      electionDay = it.electionDay,
-                     division = it.division,
+                     division = ElectionAdapter().divisionFromJson(it.newDivision),
                     newDivision = it.newDivision
 
                 )
